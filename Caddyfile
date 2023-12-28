@@ -49,7 +49,7 @@ dev.codedang.com {
 	}
 
 	handle {
-		root * /static
+		root * /var/www/html
 		try_files {path} /index.html
 		file_server
 	}
