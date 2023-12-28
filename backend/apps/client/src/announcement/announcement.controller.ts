@@ -8,9 +8,9 @@ import {
   InternalServerErrorException,
   UseGuards
 } from '@nestjs/common'
+import type { Announcement } from '@prisma/client'
 import { AuthNotNeeded, GroupMemberGuard, RolesGuard } from '@libs/auth'
 import { EntityNotExistException } from '@libs/exception'
-import type { Announcement } from '@admin/@generated'
 import { AnnouncementService } from './announcement.service'
 
 @Controller('announcement/problem/:problemId')
@@ -33,7 +33,7 @@ export class ProblemAnnouncementController {
       if (error instanceof EntityNotExistException) {
         throw new NotFoundException(error.message)
       }
-      this.logger.error(error.message, error.stack)
+      this.logger.error(error)
       throw new InternalServerErrorException()
     }
   }
@@ -53,7 +53,7 @@ export class ProblemAnnouncementController {
       if (error instanceof EntityNotExistException) {
         throw new NotFoundException(error.message)
       }
-      this.logger.error(error.message, error.stack)
+      this.logger.error(error)
       throw new InternalServerErrorException()
     }
   }
@@ -78,7 +78,7 @@ export class ContestAnnouncementController {
       if (error instanceof EntityNotExistException) {
         throw new NotFoundException(error.message)
       }
-      this.logger.error(error.message, error.stack)
+      this.logger.error(error)
       throw new InternalServerErrorException()
     }
   }
@@ -98,7 +98,7 @@ export class ContestAnnouncementController {
       if (error instanceof EntityNotExistException) {
         throw new NotFoundException(error.message)
       }
-      this.logger.error(error.message, error.stack)
+      this.logger.error(error)
       throw new InternalServerErrorException()
     }
   }
