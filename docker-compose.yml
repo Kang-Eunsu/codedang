@@ -72,7 +72,6 @@ services:
       - '443:443'
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
-      - ./dist:/static
     network_mode: host
 
   backend-client:
