@@ -139,7 +139,7 @@ jobs:
         run: docker exec -w /etc/caddy caddy caddy reload
 
       - name: Make Directory into Caddy & Copy static files to Caddy
-        run: /
+        run: |
           docker exec -w / caddy mkdir -p /var/www/html
           docker cp ./dist/. caddy:/var/www/html
 
